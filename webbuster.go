@@ -32,10 +32,6 @@ func mainpage(w http.ResponseWriter, r *http.Request) {
 	}
 	if r.Method == "GET" {
 		t, _ := template.New("code").Parse(static.HtmlCode)
-		//t, _ := template.ParseFiles("static/index.html")
-		//u := static.BustData{Url: &myJSON.Url, Method: myJSON.Method}
-		//t.Execute(w, u)
-		//fmt.Printf("%v\n", myJSON)
 		t.Execute(w, myJSON)
 	} else {
 		http.Error(w, "Method not allowed", http.StatusMethodNotAllowed)
